@@ -88,9 +88,6 @@ for x in range(1,len(argv)):
         exit("Unknown argument, use -h for help")
 
 
-#target_dir = "/mnt/"
-#output_dir = "/sne/home/fmijnen/discord_extract_windows/"
-
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
     os.makedirs(output_dir + "/images/")
