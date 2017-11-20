@@ -1,7 +1,15 @@
 # discrecorder
 This tool is designed to automate a forensic investigation of a system with Discord on it. It will automatically find and pull relevant data from any discord installation
 
-#license.
+# Installation
+
+The code is written in python 3 and runs on Linux. 
+
+The following python libraries should be installed using PIP
+
+pip install flask python-magic
+
+#license
 
 Copyright 2017 Fons Mijnen
 
