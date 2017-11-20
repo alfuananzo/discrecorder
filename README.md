@@ -1,5 +1,7 @@
 # discrecorder
-A discord forensics tool
+This tool is designed to automate a forensic investigation of a system with Discord on it. It will automatically find and pull relevant data from any discord installation
+
+#license.
 
 Copyright 2017 Fons Mijnen
 
