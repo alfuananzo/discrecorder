@@ -11,7 +11,7 @@ The following python libraries should be installed using PIP
 pip install flask python-magic
 ```
 
-#license
+# license
 
 Copyright 2017 Fons Mijnen
 
