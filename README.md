@@ -7,7 +7,9 @@ The code is written in python 3 and runs on Linux.
 
 The following python libraries should be installed using PIP
 
+```bash
 pip install flask python-magic
+```
 
 #license
 
