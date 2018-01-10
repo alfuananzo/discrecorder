@@ -1,4 +1,3 @@
-# T
 import json
 import os
 import datetime
@@ -11,7 +10,6 @@ output_dir = argv[1]
 working_dir = output_dir + "/data/"
 
 conn = sqlite3.connect(working_dir + "sqlite_db/" + 'discord.db')
-#conn = sqlite3.connect('discord.db')
 c = conn.cursor()
 
 c.execute("""CREATE TABLE "chat_log" (
