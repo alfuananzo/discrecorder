@@ -4,6 +4,7 @@ import hashlib
 from shutil import copyfile
 import json
 from time import sleep
+from sys import platform
 
 def sha256checksum(file):
     with open(file, 'rb') as f:
@@ -17,6 +18,7 @@ def sha256checksum(file):
 
 
 def id_file(file):
+    # Rewrite with python magic
     if sha256checksum(file) not in known_files:
         with open(file, "rb") as bf:
             head = [next(bf) for x in range(1)]
@@ -47,7 +49,7 @@ def id_json(data):
     if "type" in data[0] and "user" in data[0]:
         print("Found the friends list")
         copyfile(working_dir + "/" + file, output_dir + "/data/friendlist.json")
-
+    # Check while we sleep
     sleep(2)
 
 if len(argv) < 2:
@@ -109,6 +111,9 @@ with open("known_files.txt", "r") as f:
     for line in f:
         known_files.append(line[:-1])
 
+os = platform
+print(os)
+exit()
 if "etc" in root_dir and "proc" in root_dir and "dev" in root_dir:
     print("Linux detected")
     print("Looking for discord data")
