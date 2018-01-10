@@ -1,3 +1,6 @@
+# TODO
+# Add suppot to mark a file as uninteresting to the HASH TABLE
+
 from sys import argv, exit
 import os
 import hashlib
@@ -111,10 +114,10 @@ with open("known_files.txt", "r") as f:
     for line in f:
         known_files.append(line[:-1])
 
-os = platform
-print(os)
-exit()
-if "etc" in root_dir and "proc" in root_dir and "dev" in root_dir:
+# Check the platform and procede based on the platform.
+target_os = platform
+
+if target_os == "linux":
     print("Linux detected")
     print("Looking for discord data")
     discord_path = ""
@@ -128,6 +131,9 @@ if "etc" in root_dir and "proc" in root_dir and "dev" in root_dir:
         if discord_path:
             break
 
+    if not discord_path:
+        print("No discord data found on system")
+        exit()
     print("Discord data found. Starting data extraction.")
 
     cache_dir = os.listdir(discord_path + "/Cache/")
@@ -158,7 +164,7 @@ if "etc" in root_dir and "proc" in root_dir and "dev" in root_dir:
                     except:
                         continue
 
-elif "Windows" in root_dir and "Program Files" in root_dir:
+elif target_os == "win32" or target_os == "cygwin":
     print("Windows detected")
     print("Looking for discord data")
     discord_local_path = ""
@@ -204,6 +210,11 @@ elif "Windows" in root_dir and "Program Files" in root_dir:
                     except (json.decoder.JSONDecodeError, UnicodeDecodeError, KeyError):
                         # Ignore json errors
                         continue
+
+elif target_os == "darwin":
+    print("MacOs detected")
+    print("MacOs support will be added later")
+    # I DONT WANT TO BUY A MAC
 
 else:
     exit("Could not identify OS")
